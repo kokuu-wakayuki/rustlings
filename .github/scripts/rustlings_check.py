@@ -26,7 +26,7 @@ def count_total() -> int:
     return len(binaries)
 
 def main() -> None:
-    print(f"{count_pass()} {count_total()}")   
+    print(f"{count_pass()}/{count_total()}")   
 
 if __name__ == "__main__":
     main()
