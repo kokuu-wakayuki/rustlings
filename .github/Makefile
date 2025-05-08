@@ -1,4 +1,4 @@
-.PHONY : all
+.PHONY : all ci_rustlings_check dependencies
 
 CARGO := cargo
 RUSTLINGS := rustlings
@@ -10,7 +10,7 @@ all:
 
 CI_RUSTLINGS_CHECK_PATH := scripts/rustlings_check.py
 
-ci_rustlings_check:
+ci_rustlings_check: dependencies
 	@$(PYTHON) $(CI_RUSTLINGS_CHECK_PATH)
 
 LIB_PYTHON_TOML := toml
