@@ -16,9 +16,9 @@ ci_rustlings_check: dependencies
 LIB_PYTHON_TOML := toml
 
 dependencies:
-	@if ! command -v $(RUSTLINGS) > /dev/null; then \
+	@if ! command -v $(RUSTLINGS) > /dev/null 2>&1; then \
 		$(CARGO) install $(RUSTLINGS); \
 	fi
-	@if ! $(PIP) show $(LIB_PYTHON_TOML); then \
+	@if ! $(PIP) show $(LIB_PYTHON_TOML) > /dev/null 2>&1; then \
 		$(PIP) install $(LIB_PYTHON_TOML); \
 	fi
