@@ -17,8 +17,8 @@ LIB_PYTHON_TOML := toml
 
 dependencies:
 	@if ! command -v $(RUSTLINGS) > /dev/null 2>&1; then \
-		$(CARGO) install $(RUSTLINGS); \
+		$(CARGO) install $(RUSTLINGS) > /dev/null 2>&1; \
 	fi
 	@if ! $(PIP) show $(LIB_PYTHON_TOML) > /dev/null 2>&1; then \
-		$(PIP) install $(LIB_PYTHON_TOML); \
+		$(PIP) install $(LIB_PYTHON_TOML) > /dev/null 2>&1; \
 	fi
