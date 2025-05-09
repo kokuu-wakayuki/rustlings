@@ -9,7 +9,7 @@ os.chdir(f"{PWD}/../../")
 
 CARGO_TOML = "Cargo.toml"
 
-binaries = [i["name"] for i in toml.load(CARGO_TOML)["bin"]]
+binaries = [i["name"] for i in toml.load(CARGO_TOML)["bin"] if not str(i["name"]).endswith("_sol")]
 
 def test_bin(bin_name: str) -> bool:
     result = os.system(f"rustlings run {bin_name} > /dev/null 2>&1")
