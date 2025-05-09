@@ -29,8 +29,8 @@ jobs:
         uses: RubbaBoy/BYOB@v1.3.0
         with:
           NAME: progress
-          LABEL: 'Progress'
-          ICON: 'rust'
+          LABEL: 'Rustlings progress'
+          ICON: 'terminal'
           STATUS: ${{ steps.test.outputs.result }}
           COLOR: blue
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
