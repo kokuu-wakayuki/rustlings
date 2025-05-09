@@ -5,6 +5,8 @@
 
 自分で練習する
 
+Generate by [`rustlings`](https://rustlings.cool/) command.
+
 ## License
 
 MIT
