@@ -27,7 +27,7 @@ jobs:
       - name: Generate custom badge
         uses: RubbaBoy/BYOB@v1.3.0
         with:
-          NAME: time
+          NAME: progress
           LABEL: 'Progress'
           ICON: 'rust'
           STATUS: ${{ steps.test.outputs.result }}
