@@ -15,8 +15,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Run test script
-      run: |
-        cd .github/
-        make ci_rustlings_check
+      - uses: actions/checkout@v4
+      - name: Run test script
+        run: |
+          cd .github/
+          result=$(make ci_rustlings_check)
+          echo "##[set-output name=result;]$(result)"
+      - name: Generate custom badge
+        uses: RubbaBoy/BYOB@v1.3.0
+        with:
+          NAME: time
+          LABEL: 'Progress'
+          ICON: 'rust'
+          STATUS: ${{ steps.test.outputs.result }}
+          COLOR: blue
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
