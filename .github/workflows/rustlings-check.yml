@@ -23,6 +23,7 @@ jobs:
         run: |
           cd .github/
           result=$(make ci_rustlings_check)
+          echo "$result"
           echo "result={result}" >> $GITHUB_OUTPUT
       - name: Generate custom badge
         uses: RubbaBoy/BYOB@v1.3.0
