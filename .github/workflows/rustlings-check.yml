@@ -19,7 +19,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - name: Run test script
+      - id: test
+        name: Run test script
         run: |
           cd .github/
           result=$(make ci_rustlings_check)
