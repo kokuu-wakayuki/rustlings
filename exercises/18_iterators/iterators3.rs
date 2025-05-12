@@ -14,7 +14,7 @@ fn divide(a: i64, b: i64) -> Result<i64, DivisionError> {
     match 0 {
         _ if b == 0 => Err(DivisionError::DivideByZero),
         _ if a == i64::MIN && b == -1 => Err(DivisionError::IntegerOverflow),
-        _ if a % b == 0 => Err(DivisionError::NotDivisible),
+        _ if a % b != 0 => Err(DivisionError::NotDivisible),
         _ => Ok(a / b),
     }
 }
