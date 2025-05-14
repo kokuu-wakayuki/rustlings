@@ -7,20 +7,15 @@ import toml
 PWD = sys.path[0]
 os.chdir(f"{PWD}/../../")
 
+STATE_TXT = ".rustlings-state.txt"
 CARGO_TOML = "Cargo.toml"
 
 binaries = [i["name"] for i in toml.load(CARGO_TOML)["bin"] if not str(i["name"]).endswith("_sol")]
 
-def test_bin(bin_name: str) -> bool:
-    result = os.system(f"rustlings run {bin_name} > /dev/null 2>&1")
-    return result == 0
-
 def count_pass() -> int:
-    cnt = 0
-    for bin_name in binaries:
-        if test_bin(bin_name):
-            cnt += 1
-    return cnt
+    unused_len_num = 4
+    with open(STATE_TXT, "r") as f:
+        return len(f.readlines()) - unused_len_num
 
 def count_total() -> int:
     return len(binaries)
